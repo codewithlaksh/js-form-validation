@@ -13,7 +13,6 @@ myBtn.addEventListener("click", (e)=>{
 			msg.innerText = '';
 			msg.classList.remove('text-danger');
 			msg.style.display = 'none';
-			msg.style.border = '';
 		}, 2000)
 	}else if(email.length < 4){
 		msg.innerText = 'Email cannot be under 4 characters';
@@ -23,7 +22,6 @@ myBtn.addEventListener("click", (e)=>{
 			msg.innerText = '';
 			msg.classList.remove('text-danger');
 			msg.style.display = 'none';
-			msg.style.border = '';
 		}, 2000)
 	}else if(message.length < 4){
 		msg.innerText = 'Message cannot be under 4 characters';
@@ -33,39 +31,15 @@ myBtn.addEventListener("click", (e)=>{
 			msg.innerText = '';
 			msg.classList.remove('text-danger');
 			msg.style.display = 'none';
-			msg.style.border = '';
 		}, 2000)
 	}else{
-		let data = 
-            '\r Name: ' + name + ' \r\n ' + 
-            'Email: ' + email + ' \r\n ' +
-            'Message: ' + message;
-        
-        // Convert the text to BLOB.
-        const textToBLOB = new Blob([data], { type: 'text/plain' });
-        const sFileName = 'formData.txt';	   // The file to save the data.
-
-        let newLink = document.createElement("a");
-        newLink.download = sFileName;
-
-        if (window.webkitURL != null) {
-            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
-        }
-        else {
-            newLink.href = window.URL.createObjectURL(textToBLOB);
-            newLink.style.display = "none";
-            document.body.appendChild(newLink);
-        }
-
-        newLink.click();
-        msg.innerText = 'You can now submit the form';
+		msg.innerText = 'You can now submit the form';
 		msg.classList.add('text-success');
 		msg.style.display = 'block';
-		msg.style.border = '2px solid green';
-
+		msg.style.border = '2px solid #008000';
 		setTimeout(()=>{
 			msg.innerText = '';
-			msg.classList.remove('text-success');
+			msg.classList.remove('text-danger');
 			msg.style.display = 'none';
 			msg.style.border = '';
 		}, 2000)
